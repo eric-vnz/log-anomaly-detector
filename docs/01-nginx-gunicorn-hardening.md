@@ -179,7 +179,7 @@ The 502 period is preserved in the Nginx log sample and shows how a backend outa
 ## Limitations and next steps
 
 - HTTP only, no TLS
-- No rate limiting or request-size limits in Nginx
+- No explicit rate-limiting policy or application-specific request-body size limit was configured.
 - Port 80 is open to any source, which is acceptable for this lab but not for production
 - The intentional `/api/v1/crash-test` endpoint remains for log generation and would be removed in a real deployment
 - The separate NorthShip portal (port 5000) has not been migrated yet
