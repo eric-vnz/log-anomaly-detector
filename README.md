@@ -4,8 +4,8 @@ A security lab project for building and testing log-based anomaly detection.
 
 ## Status
 
-In development. The NorthShip API deployment and initial hardening are complete.
-The log parser and detection rules are planned next.
+In development. The NorthShip API deployment, hardening, and the Nginx log
+anomaly detector are complete. SSH authentication-log analysis is planned next.
 
 ## Completed work
 
@@ -14,14 +14,19 @@ The log parser and detection rules are planned next.
 - Restricted the backend to localhost.
 - Enabled UFW and verified access from Kali.
 - Captured HTTP access logs, including a backend outage and recovery.
+- Built a Python Nginx access-log parser with edge-case handling (6 tests passing).
+- Added detection rules for 502 spikes, repeated per-client 404s, and per-client
+  request bursts, with configurable windows and thresholds.
+- Added a unified CLI that prints summary, status counts, top clients and all
+  detections in one report.
 
 ## Lab write-up
 
 - [Hardening the NorthShip API with Nginx, Gunicorn, and systemd](docs/01-nginx-gunicorn-hardening.md)
+- [Building a rule-based Nginx log anomaly detector](docs/02-log-anomaly-detector.md)
 
 ## Planned work
 
-- Parse Nginx access logs.
-- Detect HTTP error spikes and suspicious request patterns.
 - Add SSH authentication-log analysis.
-- Test detection rules against labelled lab samples.
+- Add Python packaging (`pyproject.toml` / `setup.py`) so the tool installs and runs as a command.
+- Test detection rules against additional labelled lab samples to measure false positives and false negatives.
